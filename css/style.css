@@ -1,14 +1,8 @@
 canvas {
   border: 1px solid red;
-  background-color: pink;
 
 }
 
 body {
   margin: 0;
-}
-
-h1 {
-  color: white;
-  font-size: 3em;
 }

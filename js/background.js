@@ -115,7 +115,7 @@ var circleArray = [];
 function init(){
 
   circleArray = [];
-  for (var i = 0; i < 800; i++){
+  for (var i = 0; i < 500; i++){
     var radius = Math.random() * 4 + 1;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
@@ -132,13 +132,15 @@ function animate (){
 
   for (var i = 0; i < circleArray.length; i++){
     circleArray[i].update();
+
+    //Aquí puedo hacer lo siguiente para mejorar esto:
+    //En vez de for, hago: circleArray.forEach(circle = function(){circle.update();
+  // })
   }
 }
 
 
 init ();
 animate();
-  // else if (x<innerWidth) {
-  //   x+= vx;
-  // }
+
   //This creates a loop for for us, and calls animate, until we tell them to stop. But we have to call animate at the bottom
