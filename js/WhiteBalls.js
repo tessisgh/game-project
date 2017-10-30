@@ -5,5 +5,9 @@ function BlackBall(x, y, vx, vy, radius){
     this.vy = vy;
     this.radius = radius;
     this.minRadius = radius;
-    this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
+    this.color = white;
 }
+
+//Set Interval
+//How many white balls are there going to appear??
+//

@@ -49,7 +49,7 @@ var mouse = {
 }
 
 var maxRadius = 40;
-var minRadius = 3;
+var minRadius = 20;
 
 var colorArray = [
   "#ff9999",
@@ -106,7 +106,6 @@ if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && 
   this.radius -= 1;
 
 }
-
     this.draw();
   }
 }
@@ -115,8 +114,8 @@ var circleArray = [];
 function init(){
 
   circleArray = [];
-  for (var i = 0; i < 500; i++){
-    var radius = Math.random() * 4 + 1;
+  for (var i = 0; i < 50; i++){
+    var radius = Math.random() * 4 + 10;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
     var vx = (Math.random() - 0.5)*2;
