@@ -1,8 +1,8 @@
 function Player(x, y, radius, color) {
   this.x = x;
   this.y = y;
-  this.vx = 0;
-  this.vy = 0;
+  this.vx = 10;
+  this.vy = 10;
   this.radius = radius;
   this.color = color;
   // this.lifes = lifes;
@@ -20,32 +20,21 @@ function Player(x, y, radius, color) {
   }
 }
 
-Player.prototype.movement = function() {
-  this.x += this.vx;
-  this.y += this.vy;
-}
-
 Player.prototype.moveUp = function() {
-  this.y -= 10;
+  this.y -= this.vy;
 }
 
 Player.prototype.moveDown = function() {
-  this.y += 10;
+  this.y += this.vx;
 }
 
 Player.prototype.moveLeft = function() {
-  this.x -= 10;
+  this.x -= this.vx;
 }
 
 Player.prototype.moveRight = function() {
-  this.x += 10;
+  this.x += this.vx;
 }
-
-Player.prototype.noMove = function() {
-  this.vx = 0;
-  this.vy = 0;
-}
-
 
 //
 // Player.prototype.pickTA(){

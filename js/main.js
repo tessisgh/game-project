@@ -1,14 +1,14 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = 800;
+canvas.height = 600;
 
-addEventListener('resize', function() {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-  game();
-});
+// addEventListener('resize', function() {
+//   canvas.width = innerWidth;
+//   canvas.height = innerHeight;
+//   game();
+// });
 
 //MOVE THE Player
 document.onkeydown = function(e) {
@@ -28,9 +28,6 @@ document.onkeydown = function(e) {
       break;
   }
 }
-document.onkeyup = function(e) {
-  player.noMove();
-}
 
 var player;
 var particles;
@@ -46,17 +43,17 @@ var colorBalls = [
 function game() {
   particles = [];
   for (i = 0; i < 5; i++) {
-    var x = Math.random() * innerWidth;
-    var y = Math.random() * innerHeight;
-    var vx = Math.random() -0.5 * 10;
-    var vy = Math.random() -0.5 * 10;
+    var x = Math.random() * canvas.width;
+    var y = Math.random() * canvas.height;
+    var vx = Math.random() -0.5 * 12;//Velocidad en funcion de intervalos
+    var vy = Math.random() -0.5 * 12;
     var radius = Math.random() * 4 + 5;
     var color = "";
     particles.push(new WhiteBall(x, y, vx, vy, radius, color));
   };
-    player = new Player(700, 500, 20, "black");
+    player = new Player(350, 250, 20, "black");
     player.draw();
-    player.movement();
+    //player.movement();
     // bad = new BlackBall(0, 0, )
 }
 
@@ -71,6 +68,7 @@ function animate() {
   }
   player.update();
   console.log("tess");
+  //game();
 }
 
 

@@ -15,10 +15,10 @@ function WhiteBall(x, y, vx, vy, radius, color){
     }
 
     this.update = function (){
-      if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+      if (this.x + this.radius > 800 || this.x - this.radius < 0) {
         this.vx = -this.vx;
       }
-      if (this.y + this.radius > innerHeight || this.y - this.radius < 0){
+      if (this.y + this.radius > 600 || this.y - this.radius < 0){
         this.vy = -this.vy
       }
       this.x += this.vx;
