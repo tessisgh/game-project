@@ -28,6 +28,7 @@ function WhiteBall(x, y, vx, vy, radius, color){
     }
 }
 
+
 //Set Interval
 //How many white balls are there going to appear??
 //

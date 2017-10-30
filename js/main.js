@@ -15,16 +15,19 @@ document.onkeydown = function(e) {
   switch (e.keyCode) {
     case 38:
       player.moveUp();
-      console.log("hey");
+      bad.diminish();
       break;
     case 40:
       player.moveDown();
+      bad.diminish();
       break;
     case 37:
       player.moveLeft();
+      bad.diminish();
       break;
     case 39:
       player.moveRight();
+      bad.diminish();
       break;
   }
 }
@@ -32,6 +35,8 @@ document.onkeydown = function(e) {
 var player;
 var particles;
 var bad;
+// var distanceX;
+// var distanceY;
 var colorBalls = [
   "#ff9999",
   "#3366ff",
@@ -51,10 +56,19 @@ function game() {
     var color = "";
     particles.push(new WhiteBall(x, y, vx, vy, radius, color));
   };
-    player = new Player(350, 250, 20, "black");
+    player = new Player(350, 250, 20, "green");
     player.draw();
-    //player.movement();
-    // bad = new BlackBall(0, 0, )
+    bad = new BlackBall(1, 1, 1, 20);
+    console.log(bad)
+    bad.draw();
+    // //AQUI VA COLLISISON
+    // distanceX = particles[i].x - player.x;
+    // distanceY = particles[i].y - player.y;
+    // var distance = Math.sqrt(dx * dx + dy * dy);
+
+// if (distance < circle1.radius + circle2.radius) {
+//     // collision detected!
+// }
 }
 
 
@@ -64,10 +78,9 @@ function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (var i = 0; i < particles.length; i++) {
   particles[i].update();
-  console.log("hello");
   }
   player.update();
-  console.log("tess");
+  bad.update();
   //game();
 }
 
