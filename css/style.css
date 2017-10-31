@@ -1,8 +1,18 @@
 canvas {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  z-index: 1;
 
 }
 
 body {
   margin: 0;
+}
+
+#background-img {
+background-image: cover;
+position: absolute;
+width: 100%;
 }

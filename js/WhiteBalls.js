@@ -27,8 +27,3 @@ function WhiteBall(x, y, vx, vy, radius, color){
       this.draw();
     }
 }
-
-
-//Set Interval
-//How many white balls are there going to appear??
-//

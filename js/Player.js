@@ -7,9 +7,9 @@ function Player(x, y, radius, color) {
   this.color = color;
   this.friction = 0.98;
   this.maxSpeed = 20;
-  // this.lifes = lifes;
+  this.lifes = 3;
   this.moving = false;
-
+  this.points = 0;
   this.update = function() {
     if (this.x + this.radius > 795 || this.x - this.radius < 0) {
       this.vx = -this.vx*1.5;
@@ -34,32 +34,24 @@ function Player(x, y, radius, color) {
 }
 
 Player.prototype.moveUp = function() {
-  // this.y -= this.vy;
   if (this.vy > -this.maxSpeed) {this.vy--;}
 }
 
 Player.prototype.moveDown = function() {
-  // this.y += this.vx;
   if (this.vy < this.maxSpeed) {this.vy++;}
 }
 
 Player.prototype.moveLeft = function() {
-  // this.x -= this.vx;
 if (this.vx > -this.maxSpeed) {this.vx--;}
 }
 
 Player.prototype.moveRight = function() {
-  // this.x += this.vx;
   if (this.vx < this.maxSpeed) {this.vx++;}
 }
 
-
-
-//
-// Player.prototype.pickTA(){
-//
-// }
-//
-// Player.prototype.points(){
-//
-// }
+Player.prototype.playerCollision = function (particle){
+    var xDistance = particle.x - this.x;
+    var yDistance = particle.y - this.y;
+    return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(
+      yDistance, 2));
+  }
