@@ -6,10 +6,12 @@ function Player(x, y, radius, color) {
   this.radius = radius;
   this.color = color;
   this.friction = 0.98;
-  this.maxSpeed = 20;
-  this.lifes = 10;
+  this.maxSpeed = 15;
+  this.lives = 50;
   this.moving = false;
   this.points = 0;
+  this.touched = false;
+
   }
 
   Player.prototype.update = function() {
@@ -23,7 +25,9 @@ function Player(x, y, radius, color) {
   this.y += this.vy;
   this.vx *= this.friction;
   this.x += this.vx;
-  this.draw();
+    if(this.lives > 0){
+      this.draw();
+    }
   }
 
   Player.prototype.draw = function() {
@@ -35,19 +39,19 @@ function Player(x, y, radius, color) {
   }
 
   Player.prototype.moveUp = function() {
-    if (this.vy > -this.maxSpeed) {this.vy--;}
+    if (this.vy > -this.maxSpeed) {this.vy -= 2;}
   }
 
   Player.prototype.moveDown = function() {
-    if (this.vy < this.maxSpeed) {this.vy++;}
+    if (this.vy < this.maxSpeed) {this.vy += 2;}
   }
 
   Player.prototype.moveLeft = function() {
-  if (this.vx > -this.maxSpeed) {this.vx--;}
+  if (this.vx > -this.maxSpeed) {this.vx -= 2;}
   }
 
   Player.prototype.moveRight = function() {
-    if (this.vx < this.maxSpeed) {this.vx++;}
+    if (this.vx < this.maxSpeed) {this.vx += 2;}
   }
 
   Player.prototype.playerCollision = function (particle){
@@ -55,4 +59,12 @@ function Player(x, y, radius, color) {
       var yDistance = particle.y - this.y;
       return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(
       yDistance, 2));
+  }
+
+  Player.prototype.isAlive = function (){
+    if(this.lives <= 0){
+      //console.log("HAS MUERTO")
+    } else {
+      //console.log("SIGO VIVO Y MI VIDA ES ", this.lives);
+    }
   }

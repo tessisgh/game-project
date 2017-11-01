@@ -3,33 +3,6 @@ var ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 600;
 
-
-// function cropImges (src, size){
-// var img = document.createElement('img');
-//   img.src = src;
-//     img.onload = function() {
-//         ctx.save();
-//         ctx.beginPath();
-//         ctx.arc(25, 25, 2 * size, 0, Math.PI*2, true);
-//         ctx.closePath();
-//         ctx.clip();
-//
-//         ctx.drawImage(img, 0, 0, 4 * size, 4 * size);
-//
-//         ctx.beginPath();
-//         ctx.arc(0, 0, 2 * size, 0, Math.PI*2, true);
-//         ctx.clip();
-//         ctx.closePath();
-//         ctx.restore();
-//     };
-// };
-// var src = 'img/burger.png';
-// var size = 12;
-//
-// cropImges(src, size);
-
-
-
 //MOVE THE Player
 document.onkeydown = function(e) {
   switch (e.keyCode) {
@@ -53,7 +26,7 @@ document.onkeydown = function(e) {
 }
 
 var player;
-var particles;
+var particles = [];
 var bad;
 var distanceX;
 var distanceY;
@@ -66,7 +39,14 @@ var colorBalls = [
 
 
 function game() {
-  particles = [];
+  createFood();
+  player = new Player(350, 250, 20, "green");
+  player.draw();
+  bad = new BlackBall(5, 5, 1, 20);
+  bad.draw();
+}
+
+function createFood() {
   for (i = 0; i < 1; i++) {
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
@@ -74,12 +54,8 @@ function game() {
     var vy = Math.random() - 0.5 * 12;
     var radius = Math.random() * 4 + 5;
     var color = "";
-  particles.push(new Burgers(x, y, vx, vy, radius, color));
+    particles.push(new Burgers(x, y, vx, vy, radius, color));
   };
-  player = new Player(350, 250, 20, "green");
-  player.draw();
-  bad = new BlackBall(5, 5, 1, 20);
-  bad.draw();
 }
 
 function bubbleExplotion() {
@@ -92,42 +68,42 @@ function animate() {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (var i = 0; i < particles.length; i++) {
-  particles[i].update();
+    particles[i].update();
   }
   player.update();
   bad.update();
+  addPoints();
+  touched();
+  player.isAlive();
+  if(particles.length <1){
+    createFood();
+  }
 
-  // if (player.playerCollision(bad) < player.radius + bad.radius) {
-  //   true;
-  //   deathPoints = player.lifes--;
-  //   console.log(deathPoints);
-  //   if (player.lifes === 0) {
-  //   console.log("game over");
-  // }else{
-  // return false;
-  //     }
+  }
 
+function addPoints(){
   for (var j = 0; j < particles.length; j++) {
     if (player.playerCollision(particles[j]) < player.radius + particles[j].radius) {
       var radiusPoints = particles[j].radius;
-      player.points += particles[j].radius;
-      console.log(player.points);
+      player.points += particles[j].radius; //Math Floor
+      player.radius += particles[j].radius;
+      console.log("Puntuacion", player.points);
       particles.splice(j, 1);
       bubbleExplotion();
-
-      //agregar efecto de explode
     }
   }
 }
 
+function touched(){
+  if (player.playerCollision(bad) < player.radius + bad.radius) {
+    //console.log("ME ESTA TOCANDO");
+    player.lives -= 1;
+    player.touched = true;
+  } else {
+    //console.log("NO ME TOCA");
+    player.touched = false;
+  }
+}
 
-    // deathPoints = Math.floor(prueba += 1);
-    // console.log(deathPoints);
-    // if (deathPoints === 10) {
-    //   player.lifes--;
-    //   if (player.lifes === 0) {
-    //     console.log("game over");
-    //   }
-    // }
 game();
 animate();

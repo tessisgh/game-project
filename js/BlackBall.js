@@ -1,13 +1,13 @@
 function BlackBall(vx, vy, vr, radius) {
-  this.x = Math.random() * canvas.width-radius;
-  this.y = Math.random() * canvas.height-radius;
+  this.x = Math.random() * canvas.width-(radius*2);
+  this.y = Math.random() * canvas.height-(radius*2);
   this.vx = vx;
   this.vy = vy;
   this.vr = vr;
   this.radius = radius;
-  this.color = "red";
+  this.color = "black";
   this.minRadius = 50;
-  this.maxRadius = 200;
+  this.maxRadius = 175;
   this.draw();
   this.update();
 }
@@ -20,13 +20,15 @@ BlackBall.prototype.draw = function() {
 }
 
 BlackBall.prototype.update = function() {
-  if (this.x + this.radius > 795 || this.x - this.radius < 0) {
-    this.vx = -this.vx;
+  if (this.x + this.radius > 790 || this.x - this.radius < 5) {
+    this.vx = -this.vx*1.2;
   }
-  if (this.y + this.radius > 595 || this.y - this.radius < 0) {
-    this.vy = -this.vy
+  if (this.y + this.radius > 590 || this.y - this.radius < 5) {
+    this.vy = -this.vy*1.2
   }
-  this.radius += this.vr
+  if(this.radius < this.maxRadius){
+    this.radius += this.vr
+  }
   this.x += this.vx;
   this.y += this.vy;
   this.draw();
