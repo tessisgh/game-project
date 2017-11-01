@@ -4,29 +4,29 @@ canvas.width = 800;
 canvas.height = 600;
 
 
-function cropImges (src, size){
-var img = document.createElement('img');
-  img.src = src;
-    img.onload = function() {
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(25, 25, 2 * size, 0, Math.PI*2, true);
-        ctx.closePath();
-        ctx.clip();
-
-        ctx.drawImage(img, 0, 0, 4 * size, 4 * size);
-
-        ctx.beginPath();
-        ctx.arc(0, 0, 2 * size, 0, Math.PI*2, true);
-        ctx.clip();
-        ctx.closePath();
-        ctx.restore();
-    };
-};
-var src = 'img/burger.png';
-var size = 12;
-
-cropImges(src, size);
+// function cropImges (src, size){
+// var img = document.createElement('img');
+//   img.src = src;
+//     img.onload = function() {
+//         ctx.save();
+//         ctx.beginPath();
+//         ctx.arc(25, 25, 2 * size, 0, Math.PI*2, true);
+//         ctx.closePath();
+//         ctx.clip();
+//
+//         ctx.drawImage(img, 0, 0, 4 * size, 4 * size);
+//
+//         ctx.beginPath();
+//         ctx.arc(0, 0, 2 * size, 0, Math.PI*2, true);
+//         ctx.clip();
+//         ctx.closePath();
+//         ctx.restore();
+//     };
+// };
+// var src = 'img/burger.png';
+// var size = 12;
+//
+// cropImges(src, size);
 
 
 
@@ -57,12 +57,12 @@ var particles;
 var bad;
 var distanceX;
 var distanceY;
-// var colorBalls = [
-//   "#ff9999",
-//   "#3366ff",
-//   "#9fff80",
-//   "#ffff33",
-// ]
+var colorBalls = [
+  "#ff9999",
+  "#3366ff",
+  "#9fff80",
+  "#ffff33",
+]
 
 
 function game() {
@@ -73,8 +73,8 @@ function game() {
     var vx = Math.random() - 0.5 * 12; //Velocidad en funcion de intervalos
     var vy = Math.random() - 0.5 * 12;
     var radius = Math.random() * 4 + 5;
-    // var color = "";
-  particles.push(new Burgers(x, y, vx, vy, radius));
+    var color = "";
+  particles.push(new Burgers(x, y, vx, vy, radius, color));
   };
   player = new Player(350, 250, 20, "green");
   player.draw();
