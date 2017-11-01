@@ -7,6 +7,7 @@ function BlackBall(vx, vy, vr, radius) {
   this.radius = radius;
   this.color = "red";
   this.minRadius = 50;
+  this.maxRadius = 200;
   this.draw();
   this.update();
 }
