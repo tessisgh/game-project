@@ -1,87 +1,86 @@
 
 canvas {
   z-index: 1;
-  display : inline-flex
-
+  display: inline-flex
 }
 
 body {
   background-image: url("../img/cover-back.png");
-  /*background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;*/
   font-size: 1em;
   font-family: robot
 }
 
-p{
+p {
   font-family: "Open Sans";
   font-size: 1.5em;
 }
 
-h1{
+h1 {
   font-family: "Caesar Dressing", cursive;
   color: white;
   text-align: center;
   font-size: 10em;
-  background-color: red;
+  background-color: #BF004F;
   margin-left: 20%;
   margin-right: 20%;
   z-index: 2;
   border-radius: 12px;
 }
 
-h2{
-font-size: 3em;
-font-family: "Caesar Dressing", cursive;
-color: red;
+h2 {
+  font-size: 3em;
+  font-family: "Caesar Dressing", cursive;
+  color: #BF004F;
 }
 
-h3{
-font-size: 2em;
-font-family: "Caesar Dressing", cursive;
+h3 {
+  font-size: 2em;
+  font-family: "Caesar Dressing", cursive;
 }
 
 .wrapper {
   display: flex;
 }
 
-.box{
-background-color: white;
-border-radius: 10px;
-border: 3px solid #133a13;
-width: 220px;
-height: 500px;
-margin: auto;
-padding: 10px;
-text-align: center;
-
-}
-
-.instructions-box{
-  display : inline-flex
+.box {
+  background-color: #004A2A;
+  border-radius: 1px;
+  width: 220px;
+  height: 500px;
+  margin: auto;
   padding: 10px;
+  text-align: center;
+  color: white;
 }
-.restart-button {
+
+.instructions-box {
+  display: inline-flex padding: 10px;
+}
+
+.restart {
+  background-color: #bf004f;
+  color: white;
+  padding:20px;
+  border-radius: 35px;
+  font-size: 2em;
+  font-family: "Oswald";
+
 
 }
-
 
 .score-box {
   position: absolute;
   right: 20px;
-  display : inline-flex;
+  display: inline-flex;
   margin: auto;
 }
-
-
 
 #african-gif {
   width: 900px;
   height: 600px;
   position: absolute;
   left: 20%;
-  top:20%;
+  top: 20%;
   z-index: -1;
 }
 
@@ -99,7 +98,7 @@ text-align: center;
 
 h4 {
   font-size: 6em;
-  font-family: "Caesar Dressing";
+  font-family: "Oswald";
   text-align: center;
   color: white;
 }
@@ -108,74 +107,70 @@ h5 {
   font-size: 10em;
   font-family: "Caesar Dressing";
   text-align: center;
-  color: red;
+  color: white;
 }
 
-
 .lost {
-  /*display: none;
+  display: none;
   width: 900px;
   height: 600px;
   position: absolute;
   left: 20%;
-  top: 20%;*/
-  border: 3px solid blue;
-  display:none;
-  width: 900px;
-  height: 600px;
-  margin-left: 20%;
-  margin-top: 20%;
+  top: 20%;
   background-image: url(../img/game-over.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   z-index: 4;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 300px;
 }
 
 .looserDiv {
   display: block;
-  display:inherit;
+  display: inherit;
   width: 900px;
   height: 600px;
-  margin-left: 20%;
-  margin-top: 20%;
+  position: absolute;
+  left: 20%;
+  top: 20%;
   background-image: url(../img/game-over.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   z-index: 4;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 300px;
 }
 
 .win {
-  /*display:run-in;*/
+  display: none;
   width: 900px;
   height: 600px;
-  margin-left: 20%;
-  margin-top: 20%;
-  background-image: url(../img/game-over.gif);
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  background-image: url(../img/winner.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   z-index: 4;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 200px;
 }
 
 .winnerDiv {
-  /*display:run-in;*/
+  display: inherit;
   width: 900px;
   height: 600px;
-  margin-left: 20%;
-  margin-top: 20%;
-  background-image: url(../img/game-over.gif);
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  background-image: url(../img/winner.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   z-index: 4;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 200px;
 }
