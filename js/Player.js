@@ -68,7 +68,7 @@ function Player(x, y, radius) {
     if(this.lives <= 0){
       window.cancelAnimationFrame(reqAni);
       $(".life-status").html("Sorry, you dead");
-      $(".lost").toggleclass("looserDiv");
+      $(".lost").toggleClass("looserDiv");
     } else {
       $(".life-status").html("You're alive!");
       $(".lives").html(this.lives);
