@@ -79,5 +79,6 @@ function Player(x, y, radius) {
     if(this.radius > (objectRadius + 20)){
       $(".life-status").html("Yei!! You won!");
       $(".win").toggleClass("winnerDiv");
+      window.cancelAnimationFrame(reqAni);
     }
   }

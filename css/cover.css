@@ -2,10 +2,8 @@
 @import 'https://fonts.googleapis.com/css?family=Caesar+Dressing';
 
 body {
-  background-image: url(../img/cover-background.jpg);
+  background-image: url(../img/fondo-tropical.png);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 @keyframes background {
@@ -27,7 +25,19 @@ h1 {
   background-size: 200px auto;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-width: 4px;
    -webkit-text-stroke-color: black;
   animation: background 10s infinite linear;
+}
+
+button {
+  margin-left: 600px;
+  margin-top: -10px;
+  border-radius: 40px;
+  background-color: red;
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  font-size: 2em;
+  font-family:
 }
