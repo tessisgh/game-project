@@ -1,5 +1,33 @@
-#cover {
-  width:100%;
-  height: auto;
-  image-orientation: cover;
+
+@import 'https://fonts.googleapis.com/css?family=Caesar+Dressing';
+
+body {
+  background-image: url(../img/cover-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@keyframes background {
+  from {
+    background-position: 0 0%;
+  }
+  to {
+    background-position: 0 -200px;
+  }
+}
+h1 {
+  margin-top: 200px;
+  color: #F2F5FE;
+  text-align: center;
+  font-size: 200px;
+  line-height: 1;
+  font-family: 'Caesar Dressing', sans-serif;
+  background: -webkit-linear-gradient(transparent, transparent), url(http://images.all-free-download.com/images/graphiclarge/burger_vector_266368.jpg) repeat;
+  background-size: 200px auto;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-stroke-width: 3px;
+   -webkit-text-stroke-color: black;
+  animation: background 10s infinite linear;
 }
