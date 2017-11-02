@@ -1,49 +1,122 @@
 
-#canvas {
-  border: 1px solid red;
-  position: absolute;
-  left: 20%;
-  top: 15%;
+canvas {
   z-index: 1;
+  display : inline-flex
+
 }
 
 body {
-  margin: 10px;;
+  background-image: url("../img/cover-back.png");
+  /*background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;*/
+  font-size: 1em;
+  font-family: robot
 }
 
-#h1{
+h1{
   font-family: "Caesar Dressing", cursive;
-  color: brown;
+  color: white;
   text-align: center;
-  font-size: 7em;
+  font-size: 10em;
+  background-color: red;
+  margin-left: 20%;
+  margin-right: 20%;
+  z-index: 2;
+  border-radius: 12px;
+}
+
+h2{
+font-size: 2em;
+font-family: "Caesar Dressing", cursive;
+}
+
+h3{
+font-size: 1.3em;
+font-family: "Caesar Dressing", cursive;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.box{
+background-color: white;
+border-radius: 10px;
+border: 3px solid #133a13;
+width: 200px;
+height: 400px;
+margin: auto;
+
+}
+
+.instructions-box{
+  display : inline-flex
 }
 
 
-#canvas, #african-gif {
+.score-box {
+  position: absolute;
+  right: 20px;
+  display : inline-flex;
+  margin: auto;
+}
+
+
+
+#african-gif {
   width: 900px;
   height: 600px;
   position: absolute;
-left: 15%;
-top: 15%;
-  display: block;
+  left: 20%;
+  top:20%;
+  z-index: -1;
+
 }
 
-/*#canvas {
-    margin-top: -212px;
-}*/
 
-#background-img {
-background-image: cover;
-position: absolute;
-width: 100%;
+
+
+.life-status {
+  font-size: 0.7em;
 }
 
-.scoreBox {
+.points {
+  font-size: 1.2em;
+}
+
+.lives {
+  font-size: 1em;
+}
+
+.lost {
+  display: none;
+  width: 900px;
+  height: 600px;
   position: absolute;
-  right: 3%;
+  left: 15%;
   top: 15%;
-  width: 15%;
-  height: 60%;
-  border: 2px solid red;
-  text-align: center;
+}
+
+.looserDiv {
+  display: inline;
+  width: 900px;
+  height: 600px;
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  border: 3px solid blue;
+}
+
+
+.restart-button {
+
+}
+
+.win {
+
+}
+
+.winnerDiv {
+
 }

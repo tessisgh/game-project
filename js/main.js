@@ -1,6 +1,6 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 800;
+canvas.width = 900;
 canvas.height = 600;
 
 //MOVE THE Player
@@ -28,82 +28,45 @@ document.onkeydown = function(e) {
 var player;
 var particles = [];
 var bad;
-var distanceX;
-var distanceY;
-var colorBalls = [
-  "#ff9999",
-  "#3366ff",
-  "#9fff80",
-  "#ffff33",
-]
+var game;
 
-
-function game() {
+function createGame() {
+  game = new Game();
   createFood();
-  player = new Player(350, 250, 20, "green");
+  player = new Player(350, 250, 20);
   player.draw();
-  bad = new BlackBall(5, 5, 1, 20);
+  bad = new Leopard(3, 3, 1, 20);
   bad.draw();
 }
 
 function createFood() {
-  for (i = 0; i < 1; i++) {
+  for (i = 0; i < 5; i++) {
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
     var vx = Math.random() - 0.5 * 12; //Velocidad en funcion de intervalos
     var vy = Math.random() - 0.5 * 12;
     var radius = Math.random() * 4 + 5;
-    var color = "";
-    particles.push(new Burgers(x, y, vx, vy, radius, color));
+    particles.push(new Burgers(x, y, vx, vy, radius));
   };
 }
 
-function bubbleExplotion() {
-}
-
-var prueba = 0;
-var deathPoints;
-
 function animate() {
-  requestAnimationFrame(animate);
+  reqAni = requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (var i = 0; i < particles.length; i++) {
     particles[i].update();
   }
   player.update();
   bad.update();
-  addPoints();
-  touched();
+  game.addPoints(player, particles);
+  game.touched(player, bad);
   player.isAlive();
-  if(particles.length <1){
+  player.winner(bad.radius);
+  if(particles.length <1 && player.radius < bad.maxRadius){
     createFood();
-  }
-
-  }
-
-function addPoints(){
-  for (var j = 0; j < particles.length; j++) {
-    if (player.playerCollision(particles[j]) < player.radius + particles[j].radius) {
-      var radiusPoints = particles[j].radius;
-      player.points += particles[j].radius; //Math Floor
-      player.radius += particles[j].radius;
-      console.log("Puntuacion", player.points);
-      particles.splice(j, 1);
-      bubbleExplotion();
+    bad.draw();
     }
   }
-}
 
-function touched(){
-  if (player.playerCollision(bad) < player.radius + bad.radius) {
-    //console.log("ME ESTA TOCANDO");
-    player.lives -= 1;
-    player.touched = true;
-  } else {
-    //console.log("NO ME TOCA");
-    player.touched = false;
-  }
-}
-
-game();
-animate();
+createGame();
+var reqAni = requestAnimationFrame(animate);

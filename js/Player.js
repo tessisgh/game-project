@@ -1,21 +1,31 @@
-function Player(x, y, radius, color) {
+function Player(x, y, radius) {
   this.x = x;
   this.y = y;
   this.vx = 0;
   this.vy = 0;
   this.radius = radius;
-  this.color = color;
   this.friction = 0.98;
   this.maxSpeed = 15;
   this.lives = 50;
-  this.moving = false;
   this.points = 0;
   this.touched = false;
+  this.image = new Image();
+  this.image.src = "img/Impala-recortada.png";
+  this.width = this.radius*2;
+  this.height = this.radius*2;
 
   }
 
+
+  Player.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    ctx.closePath();
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
   Player.prototype.update = function() {
-    if (this.x + this.radius > 795 || this.x - this.radius < 0) {
+    if (this.x + this.radius > 895 || this.x - this.radius < 0) {
       this.vx = -this.vx*1.5;
     }
     if (this.y + this.radius > 595 || this.y - this.radius < 0){
@@ -25,18 +35,11 @@ function Player(x, y, radius, color) {
   this.y += this.vy;
   this.vx *= this.friction;
   this.x += this.vx;
-    if(this.lives > 0){
+  if(this.lives > 0){
       this.draw();
     }
   }
 
-  Player.prototype.draw = function() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    ctx.fillStyle = this.color;
-    ctx.fill()
-    ctx.closePath();
-  }
 
   Player.prototype.moveUp = function() {
     if (this.vy > -this.maxSpeed) {this.vy -= 2;}
@@ -63,8 +66,18 @@ function Player(x, y, radius, color) {
 
   Player.prototype.isAlive = function (){
     if(this.lives <= 0){
-      //console.log("HAS MUERTO")
+      window.cancelAnimationFrame(reqAni);
+      $(".life-status").html("Sorry, you dead");
+      $(".lost").toggleclass("looserDiv");
     } else {
-      //console.log("SIGO VIVO Y MI VIDA ES ", this.lives);
+      $(".life-status").html("You're alive!");
+      $(".lives").html(this.lives);
+    }
+  }
+
+  Player.prototype.winner = function (objectRadius){
+    if(this.radius > (objectRadius + 20)){
+      $(".life-status").html("Yei!! You won!");
+      $(".win").toggleClass("winnerDiv");
     }
   }
