@@ -8,7 +8,7 @@ audio {
   display: none;
 }
 body {
-  background-image: url("../img/cover-back.png");
+  background-image: url("../img/FondoGame.jpg");
   font-size: 1em;
   font-family: robot
 }
@@ -120,7 +120,6 @@ h5 {
   position: absolute;
   left: 20%;
   top: 20%;
-  background-image: url(../img/game-over.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -153,7 +152,6 @@ h5 {
   position: absolute;
   left: 20%;
   top: 20%;
-  background-image: url(../img/winner.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -169,7 +167,7 @@ h5 {
   position: absolute;
   left: 20%;
   top: 20%;
-  background-image: url(../img/winner.png);
+  background-image: url(../img/WinnerEnd.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
