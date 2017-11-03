@@ -13,6 +13,8 @@ Game.prototype.addPoints = function(playerInstance, burgers){
       playerInstance.width +=5;
       playerInstance.height +=5;
       burgers.splice(j, 1);
+      audio = new Audio ("../sounds/burger-sound.mp3");
+      audio.play();
     }
   }
 }
@@ -20,6 +22,8 @@ Game.prototype.addPoints = function(playerInstance, burgers){
 Game.prototype.touched = function (playerInstance, leopardInstance){
   if (playerInstance.playerCollision(leopardInstance) < playerInstance.radius + leopardInstance.radius) {
     playerInstance.lives -= 1;
+    audio = new Audio ("../sounds/leopard.mp3");
+    audio.play();
     playerInstance.touched = true;
   } else {
     playerInstance.touched = false;

@@ -4,6 +4,9 @@ canvas {
   display: inline-flex
 }
 
+audio {
+  display: none;
+}
 body {
   background-image: url("../img/cover-back.png");
   font-size: 1em;
@@ -107,7 +110,7 @@ h5 {
   font-size: 10em;
   font-family: "Caesar Dressing";
   text-align: center;
-  color: white;
+  color: black;
 }
 
 .lost {

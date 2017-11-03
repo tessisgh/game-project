@@ -52,3 +52,7 @@ a {
   text-decoration: none;
   color: white;
 }
+
+audio {
+  display: none;
+}

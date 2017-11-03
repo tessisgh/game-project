@@ -69,6 +69,8 @@ function Player(x, y, radius) {
       window.cancelAnimationFrame(reqAni);
       $(".life-status").html("Sorry, you dead");
       $(".lost").toggleClass("looserDiv");
+      audio = new Audio ("../sounds/game-over-clip.mp3");
+      audio.play();
     } else {
       $(".life-status").html("You're alive!");
       $(".lives").html(this.lives);
@@ -79,6 +81,8 @@ function Player(x, y, radius) {
     if(this.radius > (objectRadius + 20)){
       $(".life-status").html("Yei!! You won!");
       $(".win").toggleClass("winnerDiv");
+      audio = new Audio ("../sounds/winner-sound.mp3");
+      audio.play();
       window.cancelAnimationFrame(reqAni);
     }
   }
